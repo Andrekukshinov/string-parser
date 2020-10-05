@@ -2,9 +2,6 @@ package by.kukshinov.app.string.replacer.util.replacer.impl;
 
 import by.kukshinov.app.string.replacer.util.replacer.WordsReplacer;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class CharArrayWordsReplacer implements WordsReplacer {
     private final char[] sentence;
     private final int wordRemovalSize;
@@ -28,8 +25,14 @@ public class CharArrayWordsReplacer implements WordsReplacer {
 		  return runner;
 	   }
     }
+    private String parsedCharArrayToString(int sentenceLength, char[] tempArray, int resultSize, int wordEndIndex, int tempArStartIndex) {
+	   System.arraycopy(sentence, wordEndIndex - 1, tempArray, tempArStartIndex, sentenceLength - (wordEndIndex - 1));
+	   char[] result = new char[sentenceLength - resultSize];
+	   System.arraycopy(tempArray, 0, result, 0, sentenceLength - resultSize);
+	   return new String(result);
+    }
 
-    private static boolean isConsanant(char c) {
+    private static boolean isConsonant(char c) {
 	   String cons = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
 	   String character = String.valueOf(c);
 	   return cons.contains(character);
@@ -41,7 +44,7 @@ public class CharArrayWordsReplacer implements WordsReplacer {
     }
 
     @Override
-    public String result() {
+    public String parsedString() {
 	   int sentenceLength = sentence.length;
 	   char[] tempArray = new char[sentenceLength];
 	   int resultSize = 0;
@@ -49,7 +52,7 @@ public class CharArrayWordsReplacer implements WordsReplacer {
 	   int sourceArStartIndex = wordEndIndex;
 	   int tempArStartIndex = wordEndIndex;
 	   for (int runner = 0; runner < sentenceLength; ++runner) {
-		  if (Character.isSpaceChar(sentence[runner]) && (runner + 1 != sentenceLength) && isConsanant(sentence[runner + 1])) {
+		  if (Character.isSpaceChar(sentence[runner]) && (runner + 1 != sentenceLength) && isConsonant(sentence[runner + 1])) {
 			 wordEndIndex = getWordRemovalSize(runner + 1, sentenceLength);
 			 if (wordEndIndex - 1 != runner) {
 				System.arraycopy(sentence, sourceArStartIndex, tempArray, tempArStartIndex, runner + 1 - sourceArStartIndex);
@@ -59,11 +62,8 @@ public class CharArrayWordsReplacer implements WordsReplacer {
 			 }
 		  }
 	   }
-	   System.arraycopy(sentence, wordEndIndex - 1, tempArray, tempArStartIndex, sentenceLength - (wordEndIndex - 1));
-
-
-	   char[] result = new char[sentenceLength - resultSize ];
-	   System.arraycopy(tempArray, 0, result, 0, sentenceLength - resultSize );
-	   return new String(result);
+	   return parsedCharArrayToString(sentenceLength, tempArray, resultSize, wordEndIndex, tempArStartIndex);
     }
+
+
 }

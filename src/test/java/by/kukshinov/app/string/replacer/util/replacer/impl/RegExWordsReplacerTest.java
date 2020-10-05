@@ -1,7 +1,6 @@
 package by.kukshinov.app.string.replacer.util.replacer.impl;
 
 
-import by.kukshinov.app.string.replacer.util.searcher.PatternSearcher;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +15,7 @@ public class RegExWordsReplacerTest {
         //given
 	   RegExWordsReplacer regExReplacer = new RegExWordsReplacer(SOURCE_SENTENCE, RESULT_WORD_SIZE);
 	   //when
-	   String result = regExReplacer.result();
+	   String result = regExReplacer.parsedString();
 	   //then
 	   Assert.assertEquals(RESULT_SENTENCE, result);
     }

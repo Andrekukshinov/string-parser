@@ -33,7 +33,7 @@ public class RegExWordsReplacer implements WordsReplacer {
 
 
     @Override
-    public String result() {
+    public String parsedString() {
 	   Pattern pattern = Pattern.compile(removalPattern);
 	   Matcher matcher = pattern.matcher(sentence);
 	   String result = null;

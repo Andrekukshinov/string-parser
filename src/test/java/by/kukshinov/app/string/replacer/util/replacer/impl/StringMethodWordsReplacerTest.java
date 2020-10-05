@@ -16,7 +16,7 @@ public class StringMethodWordsReplacerTest {
 	   PatternSearcher searcher = new PatternSearcher(SOURCE_SENTENCE, WORDS_LENGTH);
 	   StringMethodWordsReplacer replacer = new StringMethodWordsReplacer(SOURCE_SENTENCE, searcher);
 	   //when
-	   String result = replacer.result();
+	   String result = replacer.parsedString();
 	   //then
 	   Assert.assertEquals(RESULT_SENTENCE,result);
     }

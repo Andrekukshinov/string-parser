@@ -13,7 +13,7 @@ public class CharArrayWordsReplacerTest  {
         //given
 	   CharArrayWordsReplacer replacer = new CharArrayWordsReplacer(SOURCE_SENTENCE, WORDS_LENGTH);
 	   //when
-	   String result = replacer.result();
+	   String result = replacer.parsedString();
 	   //then
 	   Assert.assertEquals(RESULT_SENTENCE,result);
     }

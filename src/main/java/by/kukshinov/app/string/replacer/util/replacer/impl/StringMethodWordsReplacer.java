@@ -13,7 +13,7 @@ public class StringMethodWordsReplacer implements WordsReplacer {
     }
 
     @Override
-    public String result() {
+    public String parsedString() {
 	   String[] wordsToReplace = searcher.wordsToBeRemoved();
         String result = sourceSentence;
 	   for (String s : wordsToReplace) {

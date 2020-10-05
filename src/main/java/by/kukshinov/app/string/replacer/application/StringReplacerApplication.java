@@ -23,7 +23,7 @@ public class StringReplacerApplication {
         String sentence = parser.sentenceParser(source);
         PatternSearcher searcher = new PatternSearcher(sentence, size);
         WordsReplacer replacer = new StringMethodWordsReplacer(sentence, searcher);
-        String replaced = replacer.result();
+        String replaced = replacer.parsedString();
         DataPrinter printer = new ConsoleDataPinter();
         printer.print(sentence, replaced);
     }
