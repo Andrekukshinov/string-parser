@@ -5,6 +5,9 @@ import by.kukshinov.app.string.replacer.util.searcher.PatternSearcher;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.util.*;
+
 public class StringMethodWordsReplacerTest {
     private final static String SOURCE_SENTENCE = "Andre and Billy are friends.";
     private final static String RESULT_SENTENCE = "Andre and  are friends.";
