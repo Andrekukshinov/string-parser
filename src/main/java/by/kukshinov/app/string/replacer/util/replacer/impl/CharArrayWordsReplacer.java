@@ -14,7 +14,7 @@ public class CharArrayWordsReplacer implements WordsReplacer {
 				||(wordRunner == (runner + wordRemovalSize - 1)
 				&& wordRunner + 1 == sentenceLength)) {
 			 currentWordLength++;
-		      break;
+			 break;
 		  } else {
 			 currentWordLength++;
 		  }
@@ -26,7 +26,7 @@ public class CharArrayWordsReplacer implements WordsReplacer {
 	   }
     }
     private String parsedCharArrayToString(int sentenceLength, char[] tempArray, int resultSize, int wordEndIndex, int tempArStartIndex) {
-	   System.arraycopy(sentence, wordEndIndex - 1, tempArray, tempArStartIndex, sentenceLength - (wordEndIndex - 1));
+	   System.arraycopy(sentence, wordEndIndex, tempArray, tempArStartIndex, sentenceLength - (wordEndIndex));
 	   char[] result = new char[sentenceLength - resultSize];
 	   System.arraycopy(tempArray, 0, result, 0, sentenceLength - resultSize);
 	   return new String(result);
@@ -62,7 +62,7 @@ public class CharArrayWordsReplacer implements WordsReplacer {
 			 }
 		  }
 	   }
-	   return parsedCharArrayToString(sentenceLength, tempArray, resultSize, wordEndIndex, tempArStartIndex);
+	   return parsedCharArrayToString(sentenceLength, tempArray, resultSize, sourceArStartIndex, tempArStartIndex);
     }
 
 
