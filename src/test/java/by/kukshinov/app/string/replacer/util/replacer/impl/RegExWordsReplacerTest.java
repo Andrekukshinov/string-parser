@@ -11,7 +11,6 @@ public class RegExWordsReplacerTest {
 
     @Test
     public void shouldReturnSentenceWithoutWordsOfLength() {
-        //todo fix comma and dot
         //given
 	   RegExWordsReplacer regExReplacer = new RegExWordsReplacer(SOURCE_SENTENCE, RESULT_WORD_SIZE);
 	   //when
